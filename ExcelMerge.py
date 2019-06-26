@@ -3,7 +3,7 @@ import sys
 
 import openpyxl
 import xlrd
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 
 import ExcelMergeUI
 
@@ -60,6 +60,7 @@ class ExcelMerge(QMainWindow):
         output_file = self.ui.outputFileEdit.text()
         file_type = self.ui.fileTypeComboBox.currentText()
         main(input_dir, output_file, file_type)
+        QMessageBox.information(self, "Run", "Finished")
 
     def input_folder_button_clicked(self):
         self.ui.inputFolderEdit.setText(QFileDialog.getExistingDirectory(self, "Select Input Folder"))
